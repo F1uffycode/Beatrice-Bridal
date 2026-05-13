@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Home</title>
+
+  <!-- REMIXICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+
+<!-- HEADER (сюда вставляется через fetch) -->
+<div id="header"></div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- VIDEO BACKGROUND -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="/img/main-video.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero__section">
+    <div class="hero__content">
+      <div class="hero__text">
+        <h1 class="hero__title">Beatrice Bridal Wear</h1>
+          <p class="hero__subtitle">
+            Discover the epitome of elegance with our exclusive bridal collection.
+          </p>
+            <a href="#" class="hero__button">Explore Now</a>
+      </div>
+      <!-- <div class="hero__social">
+        <a href="#" class="hero__social-link">
+          <i class="ri-instagram-line"></i>
+        </a>
+        <a href="#" class="hero__social-link">
+          <i class="ri-facebook-line"></i>
+        </a>
+        <a href="#" class="hero__social-link">
+          <i class="ri-pinterest-line"></i>
+        </a>
+      </div> -->
+    </div>
+  </section>
+
+</main>
+
+<!-- JS FILES -->
+<script src="/scripts/header.js"></script>
+
+<script>
+  // LOAD HEADER
+  fetch('/components/header.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header').innerHTML = html;
+
+      // INIT HEADER AFTER INSERT
+      if (typeof initHeader === 'function') {
+        initHeader();
+      }
+    });
+</script>
+
+</body>
+</html>
